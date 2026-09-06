@@ -14,6 +14,21 @@ For camera use on the development computer, open `http://localhost:8080`, not th
 
 Do not commit `api/config.php`; it may contain a database password. Production deployments must use HTTPS, a non-root MySQL user, regular server/database backups, and a restricted `allowed_origin`.
 
+## Hostinger subdomain deployment
+
+Production hostname: `https://eggclassifier.isujones.online`
+
+1. In Hostinger hPanel, create the `eggclassifier` subdomain and enable its SSL certificate.
+2. Create a MySQL database and database user, then import `database/schema.sql` using phpMyAdmin.
+3. Run `npm run build:hostinger` on the development computer.
+4. Upload the **contents** of `hostinger-upload/` to the subdomain's document root. Do not upload `node_modules`, source files, or the repository itself.
+5. In the uploaded `api` directory, rename `config.production-template.php` to `config.php`. Replace every `YOUR_HOSTINGER_*` value and add the private Roboflow API key.
+6. Confirm `allowed_origin` is exactly `https://eggclassifier.isujones.online` and do not add a trailing slash.
+7. Visit `/api/index.php?route=health`, then open `/login` and create or sign in to the administrator account.
+8. On the iPhone, allow Safari camera permission. Camera access requires the final HTTPS URL; it will not work before SSL is active.
+
+The generated `hostinger-upload/` directory is intentionally ignored by Git because it is a disposable deployment artifact. The production `api/config.php` must remain only on the server and must never be committed.
+
 ## Operational workflow
 
 1. An administrator creates operator accounts and a smartphone mount profile.
