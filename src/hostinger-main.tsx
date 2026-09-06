@@ -1,20 +1,12 @@
-import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import { RouterProvider } from "@tanstack/react-router";
 
 import { getRouter } from "./router";
 import "./styles.css";
 
-const container = document.getElementById("root");
-
-if (!container) {
-  throw new Error("Application root element was not found.");
-}
-
 const router = getRouter();
 
-createRoot(container).render(
-  <StrictMode>
-    <RouterProvider router={router} />
-  </StrictMode>,
-);
+// The root route owns the complete html/head/body shell. Mounting that shell
+// inside a div creates invalid nested document elements and makes mobile Safari
+// replace focused form controls during updates.
+createRoot(document).render(<RouterProvider router={router} />);
