@@ -1,5 +1,5 @@
-CREATE DATABASE IF NOT EXISTS mallard_egg_classifier CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
-USE mallard_egg_classifier;
+-- Hostinger: select u426451480_eggclassifier in phpMyAdmin before importing.
+-- CREATE DATABASE and USE are intentionally omitted for shared-hosting compatibility.
 
 CREATE TABLE IF NOT EXISTS users (
   id BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,

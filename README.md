@@ -19,10 +19,10 @@ Do not commit `api/config.php`; it may contain a database password. Production d
 Production hostname: `https://eggclassifier.isujones.online`
 
 1. In Hostinger hPanel, create the `eggclassifier` subdomain and enable its SSL certificate.
-2. Create a MySQL database and database user, then import `database/schema.sql` using phpMyAdmin.
+2. Select the `u426451480_eggclassifier` MySQL database, then import `database/schema.sql` using phpMyAdmin.
 3. Run `npm run build:hostinger` on the development computer.
 4. Upload the **contents** of `hostinger-upload/` to the subdomain's document root. Do not upload `node_modules`, source files, or the repository itself.
-5. In the uploaded `api` directory, rename `config.production-template.php` to `config.php`. Replace every `YOUR_HOSTINGER_*` value and add the private Roboflow API key.
+5. In the uploaded `api` directory, rename `config.production-template.php` to `config.php`. Add the exact Hostinger MySQL username/password and the private Roboflow API key. The database name and `localhost` host are already set.
 6. Confirm `allowed_origin` is exactly `https://eggclassifier.isujones.online` and do not add a trailing slash.
 7. Visit `/api/index.php?route=health`, then open `/login` and create or sign in to the administrator account.
 8. On the iPhone, allow Safari camera permission. Camera access requires the final HTTPS URL; it will not work before SSL is active.

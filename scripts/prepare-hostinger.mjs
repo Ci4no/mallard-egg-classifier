@@ -19,8 +19,8 @@ await cp(resolve(root, "hosting", "hostinger.htaccess"), resolve(target, ".htacc
 
 const configExample = await readFile(resolve(root, "api", "config.example.php"), "utf8");
 const productionConfig = configExample
-  .replace("'db_host' => '127.0.0.1'", "'db_host' => 'YOUR_HOSTINGER_MYSQL_HOST'")
-  .replace("'db_name' => 'mallard_egg_classifier'", "'db_name' => 'YOUR_HOSTINGER_DATABASE'")
+  .replace("'db_host' => '127.0.0.1'", "'db_host' => 'localhost'")
+  .replace("'db_name' => 'mallard_egg_classifier'", "'db_name' => 'u426451480_eggclassifier'")
   .replace("'db_user' => 'root'", "'db_user' => 'YOUR_HOSTINGER_DATABASE_USER'")
   .replace("'db_pass' => ''", "'db_pass' => 'YOUR_HOSTINGER_DATABASE_PASSWORD'")
   .replace("'allowed_origin' => ''", "'allowed_origin' => 'https://eggclassifier.isujones.online'");
